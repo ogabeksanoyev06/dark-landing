@@ -2,11 +2,22 @@
 	<div ref="dropdown" class="relative" data-dropdown="0" tabindex="0">
 		<div
 			class="flex items-center gap-2 bg-dark-1/50 lg:bg-transparent lg:border-2 lg:border-white/20 p-2 lg:p-3 rounded-full shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] cursor-pointer"
+			:class="{ '!bg-white': showDropdown }"
 			@click="handleDropdownToggle"
 		>
 			<NuxtImg :src="currentLanguage?.flag" alt="Uzbekistan Flag" class="size-6" />
-			<span class="text-sm font-semibold uppercase font-adero-trial leading-140">{{ currentLanguage?.code }}</span>
-			<NuxtImg src="/images/chevron-down.svg" alt="chevron down" class="rotate-0 size-5 transition-transform duration-300" />
+			<span class="text-sm font-semibold uppercase font-adero-trial leading-140" :class="{ '!text-orange': showDropdown }">{{ currentLanguage?.code }}</span>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="20"
+				height="20"
+				viewBox="0 0 20 20"
+				fill="none"
+				class="transition-transform duration-300"
+				:class="showDropdown ? 'rotate-0 ' : 'rotate-180 '"
+			>
+				<path d="M15.833 12.5L9.99967 6.66667L4.16634 12.5" :stroke="showDropdown ? '#FF541A' : '#fff'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			</svg>
 		</div>
 		<transition
 			enter-active-class="transition ease-out duration-100"
