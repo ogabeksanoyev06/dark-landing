@@ -16,6 +16,7 @@
 				<LanguageSwitcher />
 				<button
 					class="hidden bg-orange h-12 lg:flex items-center justify-center gap-2 font-semibold text-sm leading-140 font-adero-trial px-4 py-3 rounded-full bg-[linear-gradient(180deg,_#FF834B_0%,_#FF4E13_100%)] shadow-[0_284px_80px_0_rgba(255,78,19,0.01),0_182px_73px_0_rgba(255,78,19,0.12),0_102px_61px_0_rgba(255,78,19,0.40),0_45px_45px_0_rgba(255,78,19,0.88),0_11px_25px_0_rgba(255,78,19,0.79)] transition-300 active:scale-95"
+					@click="isOpenModal = true"
 				>
 					Bog’lanish
 					<NuxtImg src="/images/call.svg" alt="arrow" class="size-6 flex-shrink-0" />
@@ -87,14 +88,18 @@
 				</div>
 			</Teleport>
 		</Transition>
+		<FormModal v-model="isOpenModal" @close="isOpenModal = false" />
 	</header>
 </template>
 
 <script setup>
+import FormModal from '~/components/sections/form/FormModal.vue'
+
 const { scrollToSection } = useNavigation()
 
 const isSticky = ref(false)
 const isOpen = ref(false)
+const isOpenModal = ref(false)
 
 const navItems = [
 	{ id: 'products', label: 'products' },
