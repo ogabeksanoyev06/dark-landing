@@ -1,0 +1,73 @@
+@import "./tailwind.css";
+@import "./animations.css";
+@import "./fonts.css";
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px;
+}
+
+body {
+	background-color: #0f0f0f;
+	color: white;
+	font-size: 14px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.glass-border {
+	background: rgba(255, 255, 255, 0.02);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	box-shadow:
+		0 28px 40px 0 rgba(0, 0, 0, 0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+		inset 0 0 0px 0px rgba(255, 255, 255, 0);
+	position: relative;
+	transition: transform 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.skeleton {
+	background-color: #131313;
+	background-image: linear-gradient(to right, #131313 0%, #1c1c1c 20%, #141414 40%, #0f0f0f 100%);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: inline-block;
+	position: relative;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-name: placeholderShimmer;
+	animation-timing-function: linear;
+}
+
+.section-title {
+	font-size: 20px;
+	line-height: 130%;
+	font-weight: 700;
+	font-family: "Adero Trial", sans-serif;
+}
+
+@media (min-width: 768px) {
+	.section-title {
+		font-size: 24px;
+	}
+}
+@media (min-width: 1024px) {
+	.section-title {
+		font-size: 28px;
+	}
+}
+@keyframes placeholderShimmer {
+	0% {
+		background-position: -468px 0;
+	}
+
+	100% {
+		background-position: 468px 0;
+	}
+}

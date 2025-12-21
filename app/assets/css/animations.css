@@ -1,0 +1,377 @@
+/* Global Scroll Animation Styles */
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translateX(60px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes fadeInRotate {
+	from {
+		opacity: 0;
+		transform: rotate(-10deg) scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+@keyframes slideInFromBottom {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideInFromTop {
+	from {
+		opacity: 0;
+		transform: translateY(-100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		transform: scale(0.3);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes slideInDiagonal {
+	from {
+		opacity: 0;
+		transform: translate(-50px, 50px);
+	}
+	to {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+/* Base animation classes - Optimized for performance */
+.scroll-animate {
+	opacity: 0;
+	transition: opacity 0.6s ease-out;
+	contain: layout style;
+}
+
+.scroll-animate.animate-in {
+	opacity: 1;
+}
+
+/* Fade animations - Optimized with transform3d and reduced will-change */
+.fade-in-up {
+	opacity: 0;
+	transform: translate3d(0, 40px, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-up.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.fade-in-down {
+	opacity: 0;
+	transform: translate3d(0, -40px, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-down.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.fade-in-left {
+	opacity: 0;
+	transform: translate3d(-40px, 0, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-left.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.fade-in-right {
+	opacity: 0;
+	transform: translate3d(40px, 0, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-right.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.fade-in-scale {
+	opacity: 0;
+	transform: translate3d(0, 0, 0) scale(0.9);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-scale.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+.fade-in-rotate {
+	opacity: 0;
+	transform: translate3d(0, 0, 0) rotate(-5deg) scale(0.95);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.fade-in-rotate.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+}
+
+.slide-in-bottom {
+	opacity: 0;
+	transform: translate3d(0, 60px, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.slide-in-bottom.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.slide-in-top {
+	opacity: 0;
+	transform: translate3d(0, -60px, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.slide-in-top.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.zoom-in {
+	opacity: 0;
+	transform: translate3d(0, 0, 0) scale(0.8);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.zoom-in.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+.slide-in-diagonal {
+	opacity: 0;
+	transform: translate3d(-30px, 30px, 0);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.slide-in-diagonal.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.slide-in-right {
+	opacity: 0;
+	transform: translate3d(100px, 0, 0);
+	transition:
+		opacity 0.8s ease-out,
+		transform 0.8s ease-out;
+}
+
+.slide-in-right.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+@keyframes gentleSway {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+	50% {
+		transform: translate3d(-40px, 0, 0);
+	}
+}
+
+.gentle-sway {
+	animation: gentleSway 5s ease-in-out infinite;
+}
+
+/* Staggered animation delays - Optimized */
+.animate-child {
+	opacity: 0;
+	transform: translate3d(0, 20px, 0);
+	transition:
+		opacity 0.5s ease-out,
+		transform 0.5s ease-out;
+}
+
+.animate-child.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+/* Special animation for cards - Optimized */
+.card-animate {
+	opacity: 0;
+	transform: translate3d(0, 20px, 0) scale(0.98);
+	transition:
+		opacity 0.5s ease-out,
+		transform 0.5s ease-out;
+}
+
+.card-animate.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Text animation - Optimized */
+.text-animate {
+	opacity: 0;
+	transform: translate3d(0, 15px, 0);
+	transition:
+		opacity 0.5s ease-out,
+		transform 0.5s ease-out;
+}
+
+.text-animate.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+/* Image animation - Optimized */
+.image-animate {
+	opacity: 0;
+	transform: translate3d(0, 0, 0) scale(0.95);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+}
+
+.image-animate.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Button animation - Optimized */
+.button-animate {
+	opacity: 0;
+	transform: translate3d(0, 10px, 0);
+	transition:
+		opacity 0.4s ease-out,
+		transform 0.4s ease-out;
+}
+
+.button-animate.animate-in {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.scroll-animate,
+	.fade-in-up,
+	.fade-in-down,
+	.fade-in-left,
+	.fade-in-right,
+	.fade-in-scale,
+	.fade-in-rotate,
+	.slide-in-bottom,
+	.slide-in-top,
+	.slide-in-right,
+	.gentle-sway,
+	.zoom-in,
+	.slide-in-diagonal,
+	.animate-child,
+	.card-animate,
+	.text-animate,
+	.image-animate,
+	.button-animate {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
