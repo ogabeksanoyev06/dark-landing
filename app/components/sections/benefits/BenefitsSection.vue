@@ -1,5 +1,5 @@
 <template>
-	<section id="benefits" class="container py-10">
+	<section id="benefits" class="container py-10 scroll-mt-20">
 		<div class="flex flex-col gap-6">
 			<div class="flex items-center gap-2">
 				<NuxtImg src="/images/features-icon.svg" alt="features icon" class="size-8 shrink-0" />

@@ -1,19 +1,28 @@
 export const useNavigation = () => {
 	const route = useRoute()
 	const router = useRouter()
-
 	const localePath = useLocalePath()
+
+	const headerHeight = ref(0)
+
+	const measureHeaderHeight = () => {
+		nextTick(() => {
+			const headerEl = document.querySelector('header')
+			if (headerEl) {
+				headerHeight.value = headerEl.offsetHeight
+			}
+		})
+	}
 
 	const scrollToSection = (sectionId: string) => {
 		if (route.path !== localePath('/')) {
-			router.push(`/#${sectionId}`)
+			router.push({ path: localePath('/'), hash: sectionId })
 			return
 		}
 
 		const element = document.getElementById(sectionId)
 		if (element) {
-			const headerHeight = 80
-			const elementPosition = element.offsetTop - headerHeight
+			const elementPosition = element.offsetTop - headerHeight.value
 
 			window.scrollTo({
 				top: elementPosition,
@@ -29,7 +38,17 @@ export const useNavigation = () => {
 		})
 	}
 
+	onMounted(() => {
+		measureHeaderHeight()
+		window.addEventListener('resize', measureHeaderHeight)
+	})
+
+	onUnmounted(() => {
+		window.removeEventListener('resize', measureHeaderHeight)
+	})
+
 	return {
+		headerHeight,
 		scrollToSection,
 		scrollToTop
 	}

@@ -1,5 +1,5 @@
 <template>
-	<section id="products" class="container py-10">
+	<section id="products" class="container py-10 scroll-mt-20">
 		<!-- HEADER -->
 		<div class="flex items-center justify-between gap-5">
 			<div class="flex items-center gap-2">

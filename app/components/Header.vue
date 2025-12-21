@@ -7,9 +7,14 @@
 				</NuxtLinkLocale>
 				<!-- Desktop nav -->
 				<nav class="hidden lg:flex gap-4 xl:gap-6 font-medium text-sm xl:text-base !leading-140 relative" role="navigation" aria-label="Main navigation">
-					<button v-for="item in navItems" :key="item.id" class="transition-all duration-300 ease-in-out whitespace-nowrap hover:text-orange" @click="handleNavigation(item.id)">
+					<NuxtLink
+						v-for="item in navItems"
+						:key="item.id"
+						:to="{ path: '/', hash: `#${item.id}` }"
+						class="transition-all duration-300 ease-in-out whitespace-nowrap hover:text-orange"
+					>
 						{{ $t(item.label) }}
-					</button>
+					</NuxtLink>
 				</nav>
 			</div>
 			<div class="flex items-center gap-3">
@@ -67,19 +72,14 @@
 							</button>
 						</div>
 						<nav class="flex flex-col gap-3 mt-10">
-							<button
-								v-for="item in [...navItems]"
+							<NuxtLink
+								v-for="item in navItems"
 								:key="item.id"
+								:to="{ path: '/', hash: `#${item.id}` }"
 								class="text-white bg-dark w-full py-3 px-4 rounded-xl text-lg font-semibold hover:text-orange transition-all duration-300"
-								@click="
-									() => {
-										handleNavigation(item.id)
-										isOpen = false
-									}
-								"
 							>
 								{{ $t(item.label) }}
-							</button>
+							</NuxtLink>
 						</nav>
 						<div class="flex flex-col gap-5 mta">
 							<button class="bg-orange px-6 py-3 rounded-full font-semibold text-white shadow-lg active:scale-95 transition-300" @click="isOpen = false">Bog’lanish</button>
@@ -95,7 +95,7 @@
 <script setup>
 import FormModal from '~/components/sections/form/FormModal.vue'
 
-const { scrollToSection } = useNavigation()
+const route = useRoute()
 
 const isSticky = ref(false)
 const isOpen = ref(false)
@@ -112,10 +112,6 @@ const handleScroll = () => {
 	isSticky.value = window.scrollY > 100
 }
 
-const handleNavigation = (sectionId) => {
-	scrollToSection(sectionId)
-}
-
 watch(isOpen, (val) => {
 	if (val) {
 		document.body.style.overflow = 'hidden'
@@ -123,6 +119,12 @@ watch(isOpen, (val) => {
 		document.body.style.overflow = 'auto'
 	}
 })
+watch(
+	() => route.fullPath,
+	() => {
+		isOpen.value = false
+	}
+)
 
 onMounted(() => {
 	window.addEventListener('scroll', handleScroll)
