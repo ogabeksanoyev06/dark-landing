@@ -17,11 +17,11 @@
 
 <script setup lang="ts">
 defineProps<{
-	title: string
-	price: number
-	oldPrice: number
-	description: string
-	image: string
+	title?: string
+	price?: number
+	oldPrice?: number
+	description?: string
+	image?: string
 }>()
 </script>
 

@@ -27,7 +27,7 @@
 			leave-from-class="transform opacity-100 scale-100"
 			leave-to-class="transform opacity-0 scale-95"
 		>
-			<div v-if="showDropdown" data-dropdown-body class="absolute right-0 w-max min-w-[188px] translate-y-full -bottom-3 overflow-hidden bg-[#F5F6F9] rounded-2xl z-[11]">
+			<div v-if="showDropdown" data-dropdown-body class="absolute right-0 w-max min-w-[188px] translate-y-full -bottom-3 overflow-hidden bg-[#F5F6F9] rounded-2xl z-50">
 				<div v-for="(lang, index) in languagesList" :key="index" class="w-full group border-b border-[#0000001F] last:border-none">
 					<div class="flex items-center justify-between gap-2 p-3 cursor-pointer transition-300" @click="onChangeLocale(lang.code)">
 						<div class="flex items-center gap-2">
