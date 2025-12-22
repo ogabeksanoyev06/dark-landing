@@ -5,8 +5,9 @@
 
 			<section class="flex flex-1 items-center flex-col-reverse lg:flex-row gap-2">
 				<div class="flex flex-col justify-center items-start px-4 md:pl-16">
-					<div>
-						<h1 class="text-xl md:text-5xl lg:text-[44px] font-extrabold !leading-140 font-adero-trial">DARK - qulay, sifatli va hamyonbop!</h1>
+					<div class="relative z-1 w-full">
+						<h1 class="text-xl md:text-5xl lg:text-[44px] font-semibold !leading-140 font-adero-trial">DARK - qulay, sifatli va hamyonbop!</h1>
+						<NuxtImg src="/images/divider.webp" class="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 z-[-1] h-auto min-w-[650px] object-cover" />
 					</div>
 					<p class="text-sm md:text-xl lg:text-2xl mt-2 mb-8">Eng sifatli va xilma-xil mahsulotlar faqat bizda. Biz bilan bog’lanib orzuyingizdagi skuterga ega bo’ling.</p>
 					<div class="flex w-full flex-col md:flex-row gap-4">
