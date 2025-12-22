@@ -16,5 +16,15 @@
 	"why_text_3": "Rasmiy kafolat",
 	"why_description_3": "Albatta barcha mashulotlar uchun kafolat",
 	"why_text_4": "Belgilangan sifat",
-	"why_description_4": "100% belgilangan sifatli mahsulotlar to’plam"
+	"why_description_4": "100% belgilangan sifatli mahsulotlar to’plam",
+
+	"seo": {
+		"title": "DARK — Sifatli va ishonchli shinalar | Tezkor va hamyonbop",
+		"description": "DARK — yengil avtomobil va yuk mashinalari uchun sifatli shinalar savdosi. Keng tanlov, ishonchli brendlar, tezkor buyurtma va hamyonbop narxlar — barchasi bir joyda.",
+		"keywords": "shina sotib olish, avtomobil shinalari, yuk mashinasi shinalari, sifatli shinalar, arzon shinalar, shina do‘koni, shina savdosi, avtomobil ehtiyot qismlari, tire shop uzbekistan, shinalar narxi",
+		"og_title": "DARK — Sifatli va ishonchli shinalar",
+		"og_description": "DARK bilan avtomobilingiz uchun eng mos va sifatli shinalarni toping. Keng tanlov, tezkor xizmat va qulay buyurtma.",
+		"twitter_title": "DARK — Sifatli va ishonchli shinalar",
+		"twitter_description": "Avtomobilingiz uchun sifatli shinalar. Keng tanlov, tezkor buyurtma va hamyonbop narxlar."
+	}
 }
