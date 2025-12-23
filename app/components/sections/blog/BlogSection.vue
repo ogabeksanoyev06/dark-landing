@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="flex items-center gap-2 mb-6">
 				<NuxtImg src="/images/lightbulb-icon.svg" alt="icon" class="size-8 h-10 shrink-0" />
-				<h2 class="section-title">Qaynoq yangiliklar</h2>
+				<h2 class="section-title">{{ $t('blog_title') }}</h2>
 			</div>
 			<transition name="mode">
 				<div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 gap-6 overflow-hidden">

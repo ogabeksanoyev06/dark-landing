@@ -36,7 +36,7 @@ interface Branch {
 	image?: string
 	latitude?: number
 	longitude?: number
-	phone?: string
+	phone: string
 }
 
 interface Props {

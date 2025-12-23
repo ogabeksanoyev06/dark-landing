@@ -4,7 +4,7 @@
 	"benefits": "Afzalliklar",
 	"why_bonvi": "Nega DARK?",
 	"faq": "FAQ",
-	"contact_us": "Biz bilan bog'lanish",
+	"contact_us": "Bog'lanish",
 	"privacy_policy": "Maxfiylik siyosati",
 	"terms_conditions": "Foydalanish shartlari",
 	"developed_by": "Kompaniya tomonidan ishlab chiqilgan",
@@ -17,6 +17,23 @@
 	"why_description_3": "Albatta barcha mashulotlar uchun kafolat",
 	"why_text_4": "Belgilangan sifat",
 	"why_description_4": "100% belgilangan sifatli mahsulotlar to’plam",
+
+	"view_all": "Barchasini ko‘rish",
+	"hero_title": "DARK – qulay, sifatli va hamyonbop!",
+	"hero_description": "Eng sifatli va keng yanlovlik mahsulotlar faqat bizda. Biz bilan bog’lanib kerakli shinaga buyurtma bering.",
+
+	"btn_why_us": "Nega biz",
+	"blog_title": "Qaynoq yangiliklar",
+
+	"empty_title": "Avtoulovlar mavjud emas",
+	"empty_description": "Hozirda biriktirilgan mahsulotlar mavjud emas",
+
+	"about_brand_title": "DARK Oʻzbekistondagi birinchi raqamli brend",
+	"about_brand_description": "2018-yildan beri o‘z faoliyatimizni olib boramiz. 12 ta viloyatda ofislarimiz mavjud bo‘lib, Xitoy, Koreya va Germaniya yuqori texnologiyasi asosida mahsulot ishlab chiqaramiz. Bonvi bu shunchaki milliy brend.",
+	"about_btn_partner": "Hamkor bo‘lish",
+
+	"benefits_title": "Afzalliklarimiz",
+	"faq_title": "Tez-tez beriladigan savollar",
 
 	"seo": {
 		"title": "DARK — Sifatli va ishonchli shinalar | Tezkor va hamyonbop",

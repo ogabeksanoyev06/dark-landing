@@ -5,7 +5,7 @@
 		>
 			<h1 class="text-orange text-[80px] !leading-[56px] font-bold">{{ productTypesCounter.formattedCount }}+</h1>
 			<p class="text-xl lg:text-[32px] !leading-120 font-semibold lg:font-bold text-white">Mahsulotimiz turlari</p>
-			<NuxtImg src="/images/about-card-bg.webp" alt="decor" class="absolute inset-0 h-full bottom-0 left-0 w-full z-0" />
+			<NuxtImg src="/images/about-card-bg.webp" alt="decor" class="absolute inset-0 h-full w-full z-0" />
 		</div>
 		<div class="card-2 flex flex-col gap-5 md:flex-1 md:basis-0 bg-orange rounded-[32px] lg:rounded-t-[48px] lg:rounded-b-none h-auto lg:h-[400px] lg:mt-[-70px] py-12 px-8">
 			<h1 class="text-white text-6xl lg:text-[84px] !leading-130 font-bold">{{ totalProducedProductsCounter.formattedCount }}+</h1>

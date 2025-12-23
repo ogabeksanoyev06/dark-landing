@@ -50,31 +50,12 @@
 					</div>
 				</div>
 				<div class="flex flex-col gap-16 pt-6">
-					<ul class="flex gap-6 lg:gap-10 font-medium text-base lg:text-lg leading-130">
-						<li>
-							<button class="text-left transition-300 hover:text-blue" @click="handleNavigation('products')">
-								{{ $t('products') }}
-							</button>
-						</li>
+					<nav class="flex gap-6 lg:gap-10 font-medium text-base lg:text-lg leading-130">
+						<NuxtLinkLocale v-for="item in navigationLinks" :key="item.id" :to="{ path: '/', hash: `#${item.id}` }" class="text-left transition-300 hover:text-orange">
+							{{ $t(item.label) }}
+						</NuxtLinkLocale>
+					</nav>
 
-						<li>
-							<button class="text-left transition-300 hover:text-blue" @click="handleNavigation('benefits')">
-								{{ $t('benefits') }}
-							</button>
-						</li>
-
-						<li>
-							<button class="text-left transition-300 hover:text-blue" @click="handleNavigation('why')">
-								{{ $t('why_bonvi') }}
-							</button>
-						</li>
-
-						<li>
-							<button class="text-left transition-300 hover:text-blue" @click="handleNavigation('faq')">
-								{{ $t('faq') }}
-							</button>
-						</li>
-					</ul>
 					<ul class="flex items-center justify-between">
 						<li class="flex items-center gap-x-2">
 							<NuxtImg class="size-6" src="images/mail-icon.svg" alt="mail icon" />
@@ -151,32 +132,16 @@
 
 				<!-- Navigation Menu -->
 				<div class="mb-6 w-full">
-					<div class="grid grid-cols-1 gap-2 max-w-sm mx-auto">
-						<button
+					<nav class="grid grid-cols-1 gap-2 max-w-sm mx-auto">
+						<NuxtLinkLocale
+							v-for="item in navigationLinks"
+							:key="item.id"
+							:to="{ path: '/', hash: `#${item.id}` }"
 							class="flex items-center justify-center py-3 px-4 bg-dark-3/50 backdrop-blur-sm rounded-xl font-medium hover:bg-dark-3 hover:text-orange transition-300 min-h-[44px]"
-							@click="handleNavigation('functions')"
 						>
-							{{ $t('products') }}
-						</button>
-						<button
-							class="flex items-center justify-center py-3 px-4 bg-dark-3/50 backdrop-blur-sm rounded-xl font-medium hover:bg-dark-3 hover:text-orange transition-300 min-h-[44px]"
-							@click="handleNavigation('benefits')"
-						>
-							{{ $t('benefits') }}
-						</button>
-						<button
-							class="flex items-center justify-center py-3 px-4 bg-dark-3/50 backdrop-blur-sm rounded-xl font-medium hover:bg-dark-3 hover:text-orange transition-300 min-h-[44px]"
-							@click="handleNavigation('why')"
-						>
-							{{ $t('why_bonvi') }}
-						</button>
-						<button
-							class="flex items-center justify-center py-3 px-4 bg-dark-3/50 backdrop-blur-sm rounded-xl font-medium hover:bg-dark-3 hover:text-orange transition-300 min-h-[44px]"
-							@click="handleNavigation('faq')"
-						>
-							{{ $t('faq') }}
-						</button>
-					</div>
+							{{ $t(item.label) }}
+						</NuxtLinkLocale>
+					</nav>
 				</div>
 
 				<!-- Contact Information -->
@@ -228,9 +193,12 @@
 </template>
 
 <script setup>
-const { scrollToSection } = useNavigation()
+const { t } = useI18n()
 
-const handleNavigation = (sectionId) => {
-	scrollToSection(sectionId)
-}
+const navigationLinks = computed(() => [
+	{ id: 'products', label: t('products') },
+	{ id: 'benefits', label: t('benefits') },
+	{ id: 'why', label: t('why_dark') },
+	{ id: 'faq', label: t('faq') }
+])
 </script>

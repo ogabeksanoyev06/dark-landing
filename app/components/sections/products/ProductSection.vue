@@ -4,11 +4,11 @@
 		<div class="flex items-center justify-between gap-5">
 			<div class="flex items-center gap-2">
 				<NuxtImg src="/images/scooter.svg" alt="icon" class="size-8 shrink-0" />
-				<h2 class="section-title">Mahsulotlar</h2>
+				<h2 class="section-title">{{ $t('products') }}</h2>
 			</div>
 
 			<button class="flex items-center gap-2 bg-orange px-3 py-2 rounded-xl sm:rounded-full transition active:scale-95 group">
-				<span class="hidden sm:block text-xl font-bold"> Barchasini ko‘rish </span>
+				<span class="hidden sm:block text-xl font-bold"> {{ $t('view_all') }} </span>
 				<NuxtImg src="/images/arrow-up-right.svg" class="size-6 shrink-0" />
 			</button>
 		</div>
@@ -46,8 +46,8 @@
 			<div class="flex flex-col items-center justify-center text-center w-full mx-auto py-10">
 				<NuxtImg src="/images/empty.png" alt="no products" class="mx-auto mb-4" />
 				<div class="flex flex-col gap-1">
-					<h3 class="text-2xl lg:text-[28px] !leading-130 font-bold">Avtoulovlar mavjud emas</h3>
-					<p class="text-xs leading-130">Hozirda biriktirilgan mahsulotlar mavjud emas</p>
+					<h3 class="text-2xl lg:text-[28px] !leading-130 font-bold">{{ $t('empty_title') }}</h3>
+					<p class="text-xs leading-130">{{ $t('empty_description') }}</p>
 				</div>
 			</div>
 		</template>
