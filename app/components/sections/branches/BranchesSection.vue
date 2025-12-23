@@ -1,6 +1,6 @@
 <template>
 	<div class="relative md:container py-10 md:rounded-[48px] overflow-hidden">
-		<div class="absolute top-16 md:top-16 bottom-0 left-2 right-2 md:left-32 z-10 pointer-events-none">
+		<div class="absolute top-16 md:top-16 bottom-0 left-2 right-2 md:left-32 z-[5] pointer-events-none">
 			<div
 				class="bg-dark-3 border-2 border-white/10 p-3 sm:px-5 sm:pt-5 max-w-[516px] h-[400px] md:h-[calc(100%-4rem)] no-scrollbar overflow-y-auto rounded-[32px] pointer-events-auto shadow-[0_305px_85px_0_rgba(0,0,0,0),0_195px_78px_0_rgba(0,0,0,0),0_110px_66px_0_rgba(0,0,0,0.01),0_49px_49px_0_rgba(0,0,0,0.02),0_12px_27px_0_rgba(0,0,0,0.02)] ]"
 			>
