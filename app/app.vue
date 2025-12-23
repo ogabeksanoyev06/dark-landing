@@ -8,6 +8,7 @@
 </template>
 
 <script setup>
+import { useSeoMeta } from '#app'
 const { t, locale } = useI18n()
 
 const getSeoFallback = (lang) => {
@@ -56,8 +57,8 @@ useSeoMeta({
 		return v && v !== 'seo.og_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	ogImage: '/images/favicon-logo.svg',
-	ogUrl: 'https://dark.uz',
+	ogImage: '/images/footer-bg.webp',
+	ogUrl: 'https://dark-landing-pi.vercel.app/',
 	ogType: 'website',
 
 	ogLocale: computed(() => {
