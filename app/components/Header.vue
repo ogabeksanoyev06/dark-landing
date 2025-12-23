@@ -1,5 +1,5 @@
 <template>
-	<header class="max-w-[1312px] w-full" :class="isSticky ? 'fixed top-0 md:top-6  left-1/2 -translate-x-1/2 z-[999]' : 'md:mx-6 md:mt-6'">
+	<header class="max-w-[1312px] w-full transition-300" :class="isSticky ? 'fixed top-0 md:top-6  left-1/2 -translate-x-1/2 z-[999]' : 'relative md:mt-6 left-1/2 -translate-x-1/2'">
 		<div class="flex items-center justify-between bg-black/60 py-3 border-dark-1/50 md:border-2 md:rounded-full backdrop-blur-lg px-2 md:p-[8px_12px_8px_8px]">
 			<div class="flex items-center h-12 md:h-[60px] md:bg-black/60 md:border-dark-1/50 md:border-2 md:rounded-full md:px-6 md:py-4">
 				<NuxtLinkLocale to="/" class="flex-shrink-0">
