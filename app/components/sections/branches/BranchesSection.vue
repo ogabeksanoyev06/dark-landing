@@ -1,8 +1,8 @@
 <template>
-	<div class="relative container py-10 lg:rounded-[48px] overflow-hidden">
-		<div class="absolute top-5 md:top-16 bottom-0 left-8 md:left-32 z-10 pointer-events-none">
+	<div class="relative md:container py-10 md:rounded-[48px] overflow-hidden">
+		<div class="absolute top-16 md:top-16 bottom-0 left-2 right-2 md:left-32 z-10 pointer-events-none">
 			<div
-				class="bg-white p-5 max-w-[516px] h-[400px] md:h-[calc(100%-4rem)] no-scrollbar overflow-y-auto rounded-[32px] pointer-events-auto shadow-[0_305px_85px_0_rgba(0,0,0,0),0_195px_78px_0_rgba(0,0,0,0),0_110px_66px_0_rgba(0,0,0,0.01),0_49px_49px_0_rgba(0,0,0,0.02),0_12px_27px_0_rgba(0,0,0,0.02)]"
+				class="bg-dark-3 border-2 border-white/10 p-3 sm:px-5 sm:pt-5 max-w-[516px] h-[400px] md:h-[calc(100%-4rem)] no-scrollbar overflow-y-auto rounded-[32px] pointer-events-auto shadow-[0_305px_85px_0_rgba(0,0,0,0),0_195px_78px_0_rgba(0,0,0,0),0_110px_66px_0_rgba(0,0,0,0.01),0_49px_49px_0_rgba(0,0,0,0.02),0_12px_27px_0_rgba(0,0,0,0.02)] ]"
 			>
 				<div class="flex flex-col gap-3">
 					<template v-if="isPending">
@@ -16,8 +16,8 @@
 		</div>
 
 		<!-- Map -->
-		<div class="yandex-map-container relative z-0 rounded-[48px] overflow-hidden w-full h-[800px] aspect-[1440/800] md:aspect-[1440/700] !md:h-[700px]">
-			<div ref="mapContainer" class="map-container"></div>
+		<div class="yandex-map-container relative z-0">
+			<div ref="mapContainer" class="map-container md:rounded-[48px]"></div>
 		</div>
 	</div>
 </template>
@@ -417,12 +417,13 @@ declare global {
 <style scoped>
 /* Map Container */
 .yandex-map-container {
+	width: 100%;
+	height: 700px;
 }
 
 .map-container {
 	width: 100%;
 	height: 100%;
-	border-radius: 8px;
 	overflow: hidden;
 }
 

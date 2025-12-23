@@ -6,6 +6,7 @@
 		<AboutSection />
 		<BenefitsSection />
 		<WhySection />
+		<BranchesSection />
 		<FaqSection />
 	</div>
 </template>
@@ -18,6 +19,7 @@ import FaqSection from '~/components/sections/faq/FaqSection.vue'
 import ProductSection from '~/components/sections/products/ProductSection.vue'
 import WhySection from '~/components/sections/why/WhySection.vue'
 import HeroSection from '~/components/sections/hero/HeroSection.vue'
+import BranchesSection from '~/components/sections/branches/BranchesSection.vue'
 
 const { locale } = useI18n()
 

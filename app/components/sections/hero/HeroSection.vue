@@ -2,8 +2,7 @@
 	<div id="hero" class="md:container md:py-10 md:min-h-screen">
 		<div class="bg-black md:rounded-[48px] h-full flex flex-col pb-10 md:pb-10 md:min-h-[calc(100vh-80px)] relative overflow-hidden z-10">
 			<Header />
-
-			<section class="flex flex-1 items-center flex-col-reverse lg:flex-row gap-2">
+			<section class="flex items-center flex-col-reverse lg:flex-row gap-2">
 				<div class="flex flex-col justify-center items-start px-4 md:pl-16">
 					<div class="relative z-1 w-full">
 						<h1 class="text-xl md:text-5xl lg:text-[44px] font-semibold !leading-140 font-adero-trial">DARK - qulay, sifatli va hamyonbop!</h1>
@@ -30,22 +29,6 @@
 	</div>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const isScrolled = ref(false)
-
-const handleScroll = () => {
-	isScrolled.value = window.scrollY > 100
-}
-
-onMounted(() => {
-	window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-	window.removeEventListener('scroll', handleScroll)
-})
-</script>
+<script setup></script>
 
 <style scoped></style>
