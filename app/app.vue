@@ -57,7 +57,7 @@ useSeoMeta({
 		return v && v !== 'seo.og_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	ogImage: '/images/footer-bg.webp',
+	ogImage: 'og.png',
 	ogUrl: 'https://dark-landing-pi.vercel.app/',
 	ogType: 'website',
 
@@ -80,7 +80,7 @@ useSeoMeta({
 	twitterCard: 'summary_large_image'
 })
 
-// Structured Data for DARK (SEO)
+
 useHead({
 	script: [
 		// Organization
