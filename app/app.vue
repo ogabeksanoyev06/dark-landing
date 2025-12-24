@@ -57,7 +57,7 @@ useSeoMeta({
 		return v && v !== 'seo.og_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	ogImage: 'og.png',
+	ogImage: '/images/og.png',
 	ogUrl: 'https://dark-landing-pi.vercel.app/',
 	ogType: 'website',
 
@@ -76,7 +76,7 @@ useSeoMeta({
 		return v && v !== 'seo.twitter_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	twitterImage: 'og.png',
+	twitterImage: '/images/og.png',
 	twitterCard: 'summary_large_image'
 })
 

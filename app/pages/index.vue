@@ -63,10 +63,10 @@ useSeoMeta({
 	description: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').description),
 	ogTitle: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').ogTitle),
 	ogDescription: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').ogDescription),
-	ogImage: 'og.png',
+	ogImage: '/images/og.png',
 	ogUrl: 'https://dark-landing-pi.vercel.app/',
 	twitterTitle: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').twitterTitle),
 	twitterDescription: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').twitterDescription),
-	twitterImage: 'og.png'
+	twitterImage: '/images/og.png'
 })
 </script>
