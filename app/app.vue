@@ -57,8 +57,8 @@ useSeoMeta({
 		return v && v !== 'seo.og_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	ogImage: 'https://cdn.prod.website-files.com/659415b46df8ea43c3877776/65b10c930dd669cbbb0958af_how-to-automatically-generate-open-graph-image.webp',
-	ogUrl: 'https://dark-landing-pi.vercel.app/',
+	ogImage: 'og.png',
+	ogUrl: 'https://dark.uz/',
 	ogType: 'website',
 
 	ogLocale: computed(() => {
@@ -76,7 +76,7 @@ useSeoMeta({
 		return v && v !== 'seo.twitter_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	twitterImage: 'https://cdn.prod.website-files.com/659415b46df8ea43c3877776/65b10c930dd669cbbb0958af_how-to-automatically-generate-open-graph-image.webp',
+	twitterImage: 'og.png',
 	twitterCard: 'summary_large_image'
 })
 

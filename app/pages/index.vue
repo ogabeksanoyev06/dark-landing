@@ -64,7 +64,7 @@ useSeoMeta({
 	ogTitle: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').ogTitle),
 	ogDescription: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').ogDescription),
 	ogImage: 'og.png',
-	ogUrl: 'https://dark-landing-pi.vercel.app/',
+	ogUrl: 'https://dark.uz/',
 	twitterTitle: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').twitterTitle),
 	twitterDescription: computed(() => getDarkHomepageSeoContent(locale?.value || 'uz').twitterDescription),
 	twitterImage: 'og.png'
