@@ -76,10 +76,9 @@ useSeoMeta({
 		return v && v !== 'seo.twitter_description' ? v : getSeoFallback(locale.value).description
 	}),
 
-	twitterImage: '/images/favicon-logo.svg',
+	twitterImage: 'og.png',
 	twitterCard: 'summary_large_image'
 })
-
 
 useHead({
 	script: [
