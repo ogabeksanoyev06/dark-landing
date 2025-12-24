@@ -2,6 +2,15 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
+	app: {
+		head: {
+			link: [
+				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+				{ rel: 'apple-touch-icon', href: '/favicon.svg' }
+			]
+		}
+	},
 	css: ['@/assets/css/main.css'],
 	modules: [
 		'@nuxt/eslint',
