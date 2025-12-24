@@ -1,8 +1,10 @@
 <template>
-	<div class="relative md:container py-10 md:rounded-[48px] overflow-hidden">
-		<div class="absolute top-16 md:top-16 bottom-0 left-2 right-2 md:left-32 z-[5] pointer-events-none">
+	<div class="relative">
+		<Tabs class="container px-4 block md:hidden" v-model="activeTab" :tabs="tabs" @change="handleTabChange" />
+
+		<div v-show="!isMobile || (isMobile && activeTab === 1)" class="max-md:container md:absolute top-16 md:top-16 bottom-0 left-2 right-2 md:left-32 z-[5] pointer-events-none">
 			<div
-				class="bg-dark-3 border-2 border-white/10 p-3 sm:px-5 sm:pt-5 max-w-[516px] h-[400px] md:h-[calc(100%-4rem)] no-scrollbar overflow-y-auto rounded-[32px] pointer-events-auto shadow-[0_305px_85px_0_rgba(0,0,0,0),0_195px_78px_0_rgba(0,0,0,0),0_110px_66px_0_rgba(0,0,0,0.01),0_49px_49px_0_rgba(0,0,0,0.02),0_12px_27px_0_rgba(0,0,0,0.02)] ]"
+				class="bg-dark-3 border-2 border-white/10 p-3 sm:px-5 sm:pt-5 max-w-[516px] h-auto md:h-[calc(100%-4rem)] no-scrollbar overflow-y-auto rounded-[32px] pointer-events-auto shadow-[0_305px_85px_0_rgba(0,0,0,0),0_195px_78px_0_rgba(0,0,0,0),0_110px_66px_0_rgba(0,0,0,0.01),0_49px_49px_0_rgba(0,0,0,0.02),0_12px_27px_0_rgba(0,0,0,0.02)] ]"
 			>
 				<div class="flex flex-col gap-3">
 					<template v-if="isPending">
@@ -16,16 +18,20 @@
 		</div>
 
 		<!-- Map -->
-		<div class="yandex-map-container relative z-0">
-			<div ref="mapContainer" class="map-container md:rounded-[48px]"></div>
+		<div v-show="!isMobile || (isMobile && activeTab === 0)" class="yandex-map-container relative container z-0 overflow-hidden max-md:rounded-[20px] rounded-[48px]">
+			<div ref="mapContainer" class="map-container max-md:rounded-[20px] rounded-[48px]"></div>
 		</div>
+		<BranchModal v-model="branchModal" :branch="selectedBranch" />
 	</div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
 import BranchCard from './BranchCard.vue'
 import BranchCardLoading from './BranchCardLoading.vue'
+import BranchModal from './BranchModal.vue'
+
+const { t } = useI18n()
+
 interface Props {
 	center?: [number, number]
 	zoom?: number
@@ -41,6 +47,8 @@ const props = withDefaults(defineProps<Props>(), {
 	height: 'auto',
 	apiKey: '05181cd4-e8a6-43c1-8365-8653993c01c3' // Replace with your actual API key
 })
+const isMobile = computed(() => useWindowSize().width.value < 768)
+
 const branchesData = ref([
 	{
 		id: 1,
@@ -166,8 +174,17 @@ const branchesData = ref([
 		images: []
 	}
 ])
-const isPending = ref(false)
 
+const tabs = computed(() => [
+	{ label: t('map_view'), value: 'tab1' },
+	{ label: t('list_of_branches'), value: 'tab2' }
+])
+const handleTabChange = (index: number, tab: any) => {
+	console.log('Tab changed:', index, tab)
+}
+
+const activeTab = ref(0)
+const isPending = ref(false)
 const branchModal = ref(false)
 const selectedBranch = ref(null)
 const showBranchModal = (branch: any) => {
@@ -222,6 +239,10 @@ const resetAllMarkers = () => {
 }
 
 const focusOnBranch = (branch: any) => {
+	if (isMobile.value) {
+		showBranchModal(branch)
+		return
+	}
 	if (activeBranchId.value === branch.id) {
 		showBranchModal(branch)
 		return
@@ -246,7 +267,7 @@ const focusOnBranch = (branch: any) => {
 		})
 
 		if (targetMarker) {
-			targetMarker.options.set('iconImageHref', 'data:image/svg+xml;base64,' + createMarkerSVG('#FF541A'))
+			targetMarker.options.set('iconImageHref', 'data:image/svg+xml;base64,' + createMarkerSVG('#FE014D'))
 			activeMarker = targetMarker
 		}
 
@@ -275,19 +296,13 @@ const initMap = () => {
 			})
 
 			// Add markers from API data
-			console.log('Branches data for markers:', branchesData.value)
-
 			if (branchesData.value && Array.isArray(branchesData.value)) {
 				branchesData.value.forEach((branch: any, index: number) => {
-					console.log(`Processing branch ${index}:`, branch)
-
 					// Check for different possible coordinate field names
 					const lat = branch.latitude || branch.lat || branch.coordinates?.lat
 					const lng = branch.longitude || branch.lng || branch.coordinates?.lng
 
 					if (lat && lng) {
-						console.log(`Adding marker at: ${lat}, ${lng}`)
-
 						// Create custom marker based on Figma design
 						const customMarker = new ymaps.Placemark(
 							[lat, lng],
@@ -321,7 +336,7 @@ const initMap = () => {
 							},
 							{
 								iconLayout: 'default#imageWithContent',
-								iconImageHref: 'data:image/svg+xml;base64,' + createMarkerSVG('#FF541A'),
+								iconImageHref: 'data:image/svg+xml;base64,' + createMarkerSVG('#0154F8'),
 								iconImageSize: [46, 56],
 								iconImageOffset: [-23, -56],
 								iconContentOffset: [0, 0],
@@ -331,6 +346,10 @@ const initMap = () => {
 
 						// Add click event to marker
 						customMarker.events.add('click', () => {
+							if (isMobile.value) {
+								showBranchModal(branch)
+								return
+							}
 							if (activeBranchId.value === branch.id) {
 								showBranchModal(branch)
 								return
@@ -342,7 +361,7 @@ const initMap = () => {
 							resetAllMarkers()
 
 							// Change clicked marker to red
-							customMarker.options.set('iconImageHref', 'data:image/svg+xml;base64,' + createMarkerSVG('#FF541A'))
+							customMarker.options.set('iconImageHref', 'data:image/svg+xml;base64,' + createMarkerSVG('#FE014D'))
 
 							// Focus on the clicked marker
 							map.setCenter([lat, lng], 16, {
@@ -363,6 +382,7 @@ const initMap = () => {
 				})
 			} else {
 				console.log('No valid branches data found')
+				// Add a fallback marker to test if map is working
 				const fallbackMarker = new ymaps.Placemark(
 					props.center,
 					{
@@ -383,6 +403,7 @@ const loadYandexMapsAPI = () => {
 		initMap()
 		return
 	}
+
 	const script = document.createElement('script')
 	script.src = `https://api-maps.yandex.ru/2.1/?apikey=${props.apiKey}&lang=en_US`
 	script.async = true
@@ -397,7 +418,6 @@ const loadYandexMapsAPI = () => {
 
 onMounted(async () => {
 	// await fetchBranches()
-	console.log(branchesData.value)
 	loadYandexMapsAPI()
 })
 
@@ -417,8 +437,16 @@ declare global {
 <style scoped>
 /* Map Container */
 .yandex-map-container {
-	width: 100%;
-	height: 700px;
+	width: v-bind(width);
+	aspect-ratio: 1440 / 650;
+	height: auto;
+	max-height: 650px;
+}
+
+@media screen and (max-width: 768px) {
+	.yandex-map-container {
+		height: calc(100vh - 200px);
+	}
 }
 
 .map-container {

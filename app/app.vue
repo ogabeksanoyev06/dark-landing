@@ -36,46 +36,37 @@ useSeoMeta({
 		const v = t('seo.title')
 		return v && v !== 'seo.title' ? v : getSeoFallback(locale.value).title
 	}),
-
 	description: computed(() => {
 		const v = t('seo.description')
 		return v && v !== 'seo.description' ? v : getSeoFallback(locale.value).description
 	}),
-
 	keywords: computed(() => {
 		const v = t('seo.keywords')
 		return v && v !== 'seo.keywords' ? v : 'shina sotib olish, avtomobil shinalari, sifatli shinalar'
 	}),
-
 	ogTitle: computed(() => {
 		const v = t('seo.og_title')
 		return v && v !== 'seo.og_title' ? v : getSeoFallback(locale.value).title
 	}),
-
 	ogDescription: computed(() => {
 		const v = t('seo.og_description')
 		return v && v !== 'seo.og_description' ? v : getSeoFallback(locale.value).description
 	}),
-
 	ogImage: 'og.png',
 	ogUrl: 'https://dark.uz/',
 	ogType: 'website',
-
 	ogLocale: computed(() => {
 		const map = { uz: 'uz_UZ', ru: 'ru_RU', en: 'en_US' }
 		return map[locale.value] || 'uz_UZ'
 	}),
-
 	twitterTitle: computed(() => {
 		const v = t('seo.twitter_title')
 		return v && v !== 'seo.twitter_title' ? v : getSeoFallback(locale.value).title
 	}),
-
 	twitterDescription: computed(() => {
 		const v = t('seo.twitter_description')
 		return v && v !== 'seo.twitter_description' ? v : getSeoFallback(locale.value).description
 	}),
-
 	twitterImage: 'og.png',
 	twitterCard: 'summary_large_image'
 })

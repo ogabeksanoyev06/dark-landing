@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="bg-dark-1 border border-white/10 hover:border-orange rounded-[28px] p-3 sm:px-4 sm:py-3 flex gap-4 items-center cursor-pointer relative hover:shadow-[0_35px_77px_0_rgba(255,84,26,0.15)] group transition-300"
-		:class="{ ' !border-orange card-active': isActive }"
+		:class="{ '!border-orange card-active': isActive }"
 		@click.stop="$emit('click', branch)"
 	>
 		<!-- Branch Details -->

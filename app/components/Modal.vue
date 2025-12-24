@@ -3,7 +3,7 @@
 		<div
 			:class="[wrapperClass, { '!opacity-100 !visible': value }]"
 			data-modal="wrapper"
-			class="fixed w-full h-full bg-black/40 flex justify-center z-[100] top-0 left-0 invisible opacity-0 transition-all duration-300 items-center p-3"
+			class="fixed w-full h-full bg-black/50 backdrop-blur-lg flex justify-center z-[100] top-0 left-0 invisible opacity-0 transition-all duration-300 items-center p-3"
 			@click="handleOuterClick"
 		>
 			<Transition name="modal" mode="out-in">
