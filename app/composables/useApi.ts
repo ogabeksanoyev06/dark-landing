@@ -1,7 +1,7 @@
 import type { FetchOptions } from 'ofetch'
 
 export const useApi = (apiUrl?: string) => {
-	const baseURL = apiUrl || ''
+	const baseURL = apiUrl || 'http://admin.bonvi.uz/api/v1/Dark_uz/'
 	const locale = useCookie('locale')
 	const loading = ref(false)
 

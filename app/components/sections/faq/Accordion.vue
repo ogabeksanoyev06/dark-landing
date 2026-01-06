@@ -7,11 +7,11 @@
 			</div>
 		</div>
 		<div class="!bg-dark-1 border-2 border-white/10 rounded-[24px] sm:rounded-[32px] lg:rounded-[48px] px-6 sm:px-8">
-			<div v-for="(item, index) in accordionItems" :key="index" class="border-b border-white/10 last:border-b-0 cursor-pointer">
+			<div v-for="(item, index) in faqs" :key="index" class="border-b border-white/10 last:border-b-0 cursor-pointer">
 				<div class="w-full gap-4 text-left py-6 lg:py-8" @click="toggleItem(index)">
 					<div class="flex items-center justify-between">
 						<h3 class="text-base font-adero-trial sm:text-xl lg:text-[28px] font-bold !leading-140">
-							{{ item.title }}
+							{{ item.question }}
 						</h3>
 						<div
 							class="size-10 sm:size-12 lg:size-[54px] bg-dark-4 rounded-full flex items-center justify-center transition-transform duration-300 shrink-0"
@@ -24,7 +24,7 @@
 						<div v-show="activeIndex === index">
 							<div class="pt-5 sm:pt-7">
 								<div class="text-sm sm:text-base lg:text-2xl !leading-140 opacity-90">
-									{{ item.content }}
+									{{ item.answer }}
 								</div>
 							</div>
 						</div>
@@ -38,38 +38,7 @@
 <script setup>
 const loading = ref(false)
 
-const accordionItems = ref([
-	{
-		title: 'Skuterni qanday buyurtma qilsam bo‘ladi?',
-		content:
-			'Platforma orqali o‘zingizga yoqqan skuterni tanlaysiz yoki sizga yaqin bo‘lgan hududdagi hamkor do‘konlarimizdan buyurtma berishingiz mumkin. Buyurtma qoldirish uchun aloqa maʼlumotlaringizni kiritasiz. 24 soat ichida mutaxassislarimiz siz bilan bog‘lanib, buyurtmani rasmiylashtirib beradi.'
-	},
-	{
-		title: 'To‘lov usullari qanday? Bo‘lib to‘lash imkoniyati bormi?',
-		content:
-			'To‘lovni naqd, bank kartasi orqali yoki hamkor moliyaviy tashkilotlar yordamida amalga oshirishingiz mumkin. Shuningdek, bo‘lib to‘lash (nasiya) imkoniyati ham mavjud. To‘lov shartlari tanlangan model va hamkorlarga qarab farqlanishi mumkin.'
-	},
-	{
-		title: 'Kafolat nechchi oy va nimalarni o‘z ichiga oladi?',
-		content:
-			'Skuterlar uchun odatda 6 oydan 12 oygacha kafolat taqdim etiladi. Kafolat dvigatel, elektron qismlar va asosiy texnik nosozliklarni o‘z ichiga oladi. Mexanik shikastlanishlar va noto‘g‘ri foydalanish holatlari kafolat doirasiga kirmaydi.'
-	},
-	{
-		title: 'Servis va ehtiyot qismlar bormi?',
-		content:
-			'Ha, servis xizmati va original ehtiyot qismlar mavjud. Texnik xizmat ko‘rsatish hamkor servis markazlarida amalga oshiriladi. Zarur ehtiyot qismlar tezkor yetkazib beriladi.'
-	},
-	{
-		title: 'Qanday hujjatlar beriladi? Ro‘yxatdan o‘tkazish bo‘yicha yordam bo‘ladimi?',
-		content:
-			'Xarid vaqtida shartnoma, kafolat taloni va texnik hujjatlar taqdim etiladi. Zarur hollarda skuterni ro‘yxatdan o‘tkazish bo‘yicha ham maslahat va amaliy yordam ko‘rsatiladi.'
-	},
-	{
-		title: 'Qaytarish yoki bekor qilish qanday ishlaydi?',
-		content:
-			'Buyurtmani belgilangan muddat ichida bekor qilish yoki mahsulotni qaytarish mumkin. Qaytarish shartlari mahsulot holati va amaldagi qoidalarga muvofiq amalga oshiriladi. Batafsil maʼlumotni mutaxassislarimizdan olishingiz mumkin.'
-	}
-])
+const faqs = ref([])
 
 const activeIndex = ref(null)
 
@@ -100,6 +69,22 @@ function leave(el) {
 function afterLeave(el) {
 	el.style.height = '0px'
 }
+
+const fetchFaqs = async () => {
+	try {
+		loading.value = true
+		const response = await useApi().$get('faq/')
+		faqs.value = response?.results || []
+	} catch (err) {
+		console.error('Failed to fetch faqs:', err)
+	} finally {
+		loading.value = false
+	}
+}
+
+onMounted(() => {
+	fetchFaqs()
+})
 </script>
 
 <style scoped>
